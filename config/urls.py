@@ -18,9 +18,11 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from MainViewSet.views import MovieViewSet, CommentViewSet
+from rest_framework.authtoken.views import obtain_auth_token
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('auth/token/', obtain_auth_token),
     path('view_set/', include('MainViewSet.urls')),
     path('model_view_set/', include('MainModelViewSet.urls')),
 ]
